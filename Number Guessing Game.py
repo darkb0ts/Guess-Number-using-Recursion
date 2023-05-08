@@ -4,14 +4,16 @@ def guessDigit(guess):
     guessNumber=input("enter the number: ")
     if guessNumber.isdigit() and guessNumber!="000":
         if guess==int(guessNumber):
-            print("correct answer")
+            print("Correct Answer")
             checkinput()
         else:
-            print("wrong answer")
+            print("Wrong Answer")
             guessDigit(guess)
     elif guessNumber=="000":
+        print("Your Answer Is ",guess)
         quit()
     else:
+        print("Please Enter Interer")
         guessDigit(guess)
 def checkinput():
     manual = input( "Enter range 0 between Number: " )
@@ -21,7 +23,7 @@ def checkinput():
         elif ((int(manual) == 0) or (int(manual) == 1)):
             checkinput()
         else:
-            return int(manual)
+            guessDigit(random.randint(0,int(manual)))
     else:
         print("invaild input you give, try again,press 1 to start again/ 0 exit")
         manual = input( "Enter range 0/1 between Number: " )
@@ -36,13 +38,4 @@ def checkinput():
             checkinput()
 
 if __name__ == "__main__":
-    while(1):
-        obj=checkinput()
-        guessRange=random.randint(0,obj)
-        guessDigit(guessRange)
-
-
-
-
-
-
+    checkinput()
